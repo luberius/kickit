@@ -1,29 +1,24 @@
 package main
 
 import (
-	"kickit/core/data"
+	"fmt"
+	"kickit/core/db"
 	"kickit/core/generator"
 	"strings"
 )
 
 func main() {
-	m := data.Model{
-		TableName: "profile",
-		Fields: []data.Field{
-			{
-				Name:      "fullname",
-				FieldType: "varchar",
-			},
-			{
-				Name:      "age",
-				FieldType: "integer",
-			},
-		},
+	m, err := db.GetTable("invoice")
+
+	if err != nil {
+		panic(err)
 	}
 
 	m.Name = strings.Title(m.TableName)
 
-	err := generator.GenerateModel(m)
+	fmt.Println(m)
+
+	err = generator.GenerateModel(m)
 	if err != nil {
 		panic(err)
 	}

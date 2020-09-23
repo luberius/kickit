@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Table;
 
 
-class {{.Name}} extends Model
+class {{.Name}} extends Table
 {
     /**
      * The attributes that are mass assignable.
@@ -15,6 +15,7 @@ class {{.Name}} extends Model
     protected $table = '{{.TableName}}'
 
     protected $fillable = [
-        {{range $field := .Fields}}'{{$field.Name}}',{{end}}
+        {{range $field := .Fields}}'{{$field.Name}}',
+        {{end}}
     ];
 }

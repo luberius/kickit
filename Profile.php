@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Table;
 
 
-class Profile extends Model
+class Profile extends Table
 {
     /**
      * The attributes that are mass assignable.

@@ -7,7 +7,7 @@ import (
 	"text/template"
 )
 
-func GenerateModel(model data.Model) error {
+func GenerateModel(model *data.Table) error {
 	var modelTpl bytes.Buffer
 	t, err := template.ParseFiles("template/model.kicktpl")
 	if err != nil {

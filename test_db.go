@@ -15,7 +15,7 @@ func main() {
 	db, err := sql.Open("mysql", "root:@(localhost:3306)/dizifood")
 	err = db.Ping()
 
-	results, err := db.Query("SELECT field, typpe FROM (SHOW COLUMNS FROM invoice)")
+	results, err := db.Query("SHOW COLUMNS FROM invoice")
 
 	defer results.Close()
 

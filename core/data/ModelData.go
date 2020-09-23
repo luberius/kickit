@@ -1,12 +1,12 @@
 package data
 
 type Field struct {
-	Name string
+	Name      string
 	FieldType string
 }
 
-type Model struct {
-	Name   string
-	TableName   string
-	Fields []Field
+type Table struct {
+	Name      string
+	TableName string
+	Fields    []Field
 }
