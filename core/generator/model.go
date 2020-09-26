@@ -7,17 +7,19 @@ import (
 	"text/template"
 )
 
-func GenerateModel(model *data.Table) error {
+func GenerateModel(table *data.Table) error {
 	var modelTpl bytes.Buffer
 	t, err := template.ParseFiles("template/model.kicktpl")
 	if err != nil {
 		return err
 	}
 
-	if err := t.Execute(&modelTpl, model); err != nil {
+	if err := t.Execute(&modelTpl, table); err != nil {
 		return err
 	}
 
-	err = CreateFile(modelTpl.String(), fmt.Sprintf("%s%s.php", "", model.Name))
+	project := data.GetProject()
+
+	err = CreateFile(modelTpl.String(), project.RootPath + "app\\", fmt.Sprintf("%s.php", table.Name))
 	return err
 }

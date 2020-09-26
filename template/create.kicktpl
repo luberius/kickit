@@ -1,0 +1,11 @@
+<div class="container">
+    <form>
+        {{range $field := .Fields}}{{if or (eq $field.FieldType "varchar")}}
+        <input type="text" name="{{$field.Name}}" id="{{$field.FieldType}}">{{end}}{{if or (eq $field.FieldType "int")}}
+        <input type="number" name="{{$field.Name}}" id="{{$field.FieldType}}">{{end}}{{if or (eq $field.FieldType "date")}}
+        <input type="date" name="{{$field.Name}}" id="{{$field.FieldType}}">{{end}}{{if or (eq $field.FieldType "text")}}
+        <textarea name="{{$field.Name}}" id="{{$field.FieldType}}" cols="30" rows="10"></textarea>{{end}}{{end}}
+        <button type="submit">SAVE</button>
+
+    </form>
+</div>

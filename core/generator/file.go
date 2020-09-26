@@ -5,8 +5,9 @@ import (
 	"os"
 )
 
-func CreateFile(content string, fullPath string) error {
-	file, err := os.Create(fullPath)
+func CreateFile(content string, path string, name string) error {
+	os.MkdirAll(path, os.ModePerm)
+	file, err := os.Create(path + name)
 	if err != nil {
 		return err
 	}
